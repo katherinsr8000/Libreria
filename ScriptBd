@@ -1,0 +1,197 @@
+CREATE SCHEMA [Librerias]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Librerias].[Autores](
+	[IdAutor] [int] IDENTITY(1,1) NOT NULL,
+	[NombreCompleto] [varchar](250) NULL,
+	[FechaNacimiento] [varchar](100) NULL,
+	[CiudadProcedencia] [varchar](100) NULL,
+	[CorreoElectronico] [varchar](250) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdAutor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Librerias].[Editoriales](
+	[IdEditorial] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](200) NULL,
+	[DireccionCorrespondencia] [varchar](200) NULL,
+	[Telefono] [int] NULL,
+	[CorreoEletronico] [varchar](200) NULL,
+	[MaximoLibrosRegistrados] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdEditorial] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [Librerias].[Libro]    Script Date: 14/02/2021 9:38:19 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [Librerias].[Libro](
+	[IdLibro] [int] IDENTITY(1,1) NOT NULL,
+	[Titulo] [varchar](100) NULL,
+	[Ano] [varchar](100) NULL,
+	[Genero] [varchar](100) NULL,
+	[NumeroPag] [varchar](200) NULL,
+	[Editorial] [varchar](100) NULL,
+	[Autor] [varchar](250) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdLibro] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [Librerias].[Autores] ON 
+GO
+INSERT [Librerias].[Autores] ([IdAutor], [NombreCompleto], [FechaNacimiento], [CiudadProcedencia], [CorreoElectronico]) VALUES (1, N' J. K. Rowling', N'1998', N'Londres', NULL)
+GO
+INSERT [Librerias].[Autores] ([IdAutor], [NombreCompleto], [FechaNacimiento], [CiudadProcedencia], [CorreoElectronico]) VALUES (2, N'Collins, Suzanne', N'1547', N'Alemania', NULL)
+GO
+INSERT [Librerias].[Autores] ([IdAutor], [NombreCompleto], [FechaNacimiento], [CiudadProcedencia], [CorreoElectronico]) VALUES (3, N'Marcos el Evangelista', N'1358', N'Egipto', NULL)
+GO
+INSERT [Librerias].[Autores] ([IdAutor], [NombreCompleto], [FechaNacimiento], [CiudadProcedencia], [CorreoElectronico]) VALUES (4, N'Ana Frank', N'1934', N'Ámsterdam', N'Sin registro')
+GO
+SET IDENTITY_INSERT [Librerias].[Autores] OFF
+GO
+SET IDENTITY_INSERT [Librerias].[Editoriales] ON 
+GO
+INSERT [Librerias].[Editoriales] ([IdEditorial], [Nombre], [DireccionCorrespondencia], [Telefono], [CorreoEletronico], [MaximoLibrosRegistrados]) VALUES (1, N'Herder Editorial', N'Calle prueba1', 3254126, N'mariom@gmail.com', N'3')
+GO
+INSERT [Librerias].[Editoriales] ([IdEditorial], [Nombre], [DireccionCorrespondencia], [Telefono], [CorreoEletronico], [MaximoLibrosRegistrados]) VALUES (2, N'Garbo', N'calle prueb 2', 888821, N'garbo@gmail.com', N'2')
+GO
+INSERT [Librerias].[Editoriales] ([IdEditorial], [Nombre], [DireccionCorrespondencia], [Telefono], [CorreoEletronico], [MaximoLibrosRegistrados]) VALUES (3, N'Bandera de España', N'calle prueba 3', 588962, N'bandera@gmail.com', N'2')
+GO
+INSERT [Librerias].[Editoriales] ([IdEditorial], [Nombre], [DireccionCorrespondencia], [Telefono], [CorreoEletronico], [MaximoLibrosRegistrados]) VALUES (4, N'George Russell Allen & Unwin', N'calle prueba 4', 966333, N'geore@gmail.com', N'1')
+GO
+SET IDENTITY_INSERT [Librerias].[Editoriales] OFF
+GO
+SET IDENTITY_INSERT [Librerias].[Libro] ON 
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (1, N'La Biblia', N'1000', N'Religioso', N'1200', N'Herder Editorial', N'Marcos el Evangelista')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (2, N'Harry Potter', N'2001', N'Fantasia', N'260', N'Bloomsbury Publishing', N' J. K. Rowling')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (3, N'Crepúsculo', N'2005', N'Novela romantica', N'520', N'Bandera de España', N'Stephenie Meyer')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (4, N'Los Juegos del hambre', N'2006', N'Ciencia ficción', N'374', N'	Océano El lado oscuro', N'Collins, Suzanne')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (5, N'El señor de los anillos', N'1954', N'Novela', N'420', N'George Russell Allen & Unwin', N' J. R. R. Tolkien')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (6, N'El diario de Ana Frank', N'1959', N'Autobiografía', N'250', N'Garbo', N'Ana Frank')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (7, N'prueba ', N'prueba ', N'prueba ', N'prueba ', N'prueba ', N'prueba ')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (8, N'prueba ', N'prueba ', N'prueba ', N'prueba ', N'prueba ', N'prueba ')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (9, N'Halison santa ', N'Halison santa ', N'Halison santa ', N'Halison santa ', N'Halison santa ', N'Halison santa ')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (10, N'prueba2', N'2020', N'terror', N'200', N'pruebas1', N'angie santa')
+GO
+INSERT [Librerias].[Libro] ([IdLibro], [Titulo], [Ano], [Genero], [NumeroPag], [Editorial], [Autor]) VALUES (11, N'angie ', N'1998', N'Mujer', N'255', N'pruebas3', N'pruebasss')
+GO
+SET IDENTITY_INSERT [Librerias].[Libro] OFF
+GO
+/****** Object:  StoredProcedure [Librerias].[Add_Autor]    Script Date: 14/02/2021 9:38:20 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [Librerias].[Add_Autor]
+@NombreCompleto VARCHAR (250)	,
+@FechaNacimiento VARCHAR (100)	,
+@CiudadProcedencia VARCHAR (100) ,
+@CorreoElectronico VARCHAR (250)
+
+AS
+
+BEGIN 
+
+	INSERT INTO [Librerias].[Autores] (NombreCompleto,FechaNacimiento,CiudadProcedencia,CorreoElectronico)
+	VALUES (
+	@NombreCompleto,
+	@FechaNacimiento ,
+	@CiudadProcedencia ,
+	@CorreoElectronico)
+
+END
+GO
+/****** Object:  StoredProcedure [Librerias].[Add_Editoriales]    Script Date: 14/02/2021 9:38:20 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROC [Librerias].[Add_Editoriales]
+@Nombre VARCHAR (200),
+@DireccionCorrespondencia VARCHAR (200),
+@Telefono  INT ,
+@CorreoEletronico VARCHAR (200),
+@MaximoLibrosRegistrados VARCHAR (100)
+
+AS 
+BEGIN 
+
+	INSERT INTO [Librerias].[Editoriales] (Nombre,DireccionCorrespondencia,Telefono,CorreoEletronico,MaximoLibrosRegistrados)
+	VALUES (@Nombre,@DireccionCorrespondencia,@Telefono,@CorreoEletronico,@MaximoLibrosRegistrados)
+
+END
+GO
+/****** Object:  StoredProcedure [Librerias].[Add_Libros]    Script Date: 14/02/2021 9:38:20 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [Librerias].[Add_Libros]
+@Titulo		varchar (100),
+@Ano		varchar (100),
+@Genero		varchar (100),
+@NumeroPag	varchar (200),
+@Editorial	varchar (100),
+@Autor		varchar (250)
+
+AS
+
+BEGIN 
+
+	INSERT INTO [Librerias].[Libro] (Titulo,Ano,Genero,NumeroPag,Editorial,Autor)
+	VALUES (@Titulo,@Ano,@Genero,@NumeroPag,@Editorial,@Autor)
+
+END 
+GO
+/****** Object:  StoredProcedure [Librerias].[Lst_Libros]    Script Date: 14/02/2021 9:38:20 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [Librerias].[Lst_Libros]
+
+AS
+BEGIN 
+
+	SELECT
+		l.Titulo	,
+		l.Ano		,
+		l.Genero	,
+		l.NumeroPag,
+		l.Editorial,
+		l.Autor
+	FROM [Librerias].[Libro] l
+	ORDER BY 1 DESC 
+
+END
+GO
